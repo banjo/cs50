@@ -1,0 +1,49 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+import helpers
+
+from analyzer import Analyzer
+from termcolor import colored
+
+def main():
+
+    # usage
+    if len(sys.argv) != 2:
+        sys.exit("Usage: ./tweets @username")
+
+
+    # path to lists
+    positives = os.path.join(sys.path[0], "positive-words.txt")
+    negatives = os.path.join(sys.path[0], "negative-words.txt")
+
+    # analyser
+    analyzer = Analyzer(positives, negatives)
+
+    # name
+    name = sys.argv[1].strip("@")
+
+    # get latest tweets from user
+    tweets = helpers.get_user_timeline(name, 50)
+
+    # error check input
+    if tweets == None:
+        sys.exit("User is not found")
+
+    # analyse each tweet
+    for tweet in tweets:
+        sum = analyzer.analyze(tweet)
+        if sum > 0.0:
+            print(colored("{} {}".format(sum, tweet), "green"))
+        elif sum < 0.0:
+            print(colored("{} {}".format(sum, tweet), "red"))
+        else:
+            print(colored("{} {}".format(sum, tweet), "yellow"))
+
+
+if __name__ == "__main__":
+    main()
+
+
+

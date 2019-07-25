@@ -1,0 +1,11 @@
+0.  The longest word in the dictionary. A word for a disease called silicosis. 
+1.  It returns resource usage for "who". 
+2.  16.
+3.  C require that you pass structures by reference in functions. If it would be by value, it would be to big.
+4.  It reads from the file, one character at a time. It uses a for loop to begin reading the first character,
+    and incrmenting by one until it comes to the end. If it is a letter or an apastrophe; it is added
+    to the word. If the word is larger than what is defined, or has a digit, it is ignored.
+    if a word exists it is checked for spelling, counted and printed. 
+5.  Overall it gives less flexibility. You must allocate memory before reading from the file, there are no limits to the length 
+    of a word. Also, it cannot work with skipping numerical words. 
+6.  They are not supposed to be modified in the function itself, so it is to protect if from just that. 

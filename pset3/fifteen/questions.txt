@@ -1,0 +1,4 @@
+0. The framwork allows the dimensions 3 x 3 all the way up to 9 x 9.
+1. 2D Array.
+2. Greet().
+3. init(), draw(), move(), won(). 
